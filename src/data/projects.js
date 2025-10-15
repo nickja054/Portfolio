@@ -2,7 +2,6 @@ const projects = [
   {
     id: 1,
     title: "Smart Gym System",
-    previewImage: "/images/Project/ProjectFitness/login.png", // ✅ ใช้ /
     previewDescription: "ระบบจัดการสมาชิกฟิตเนสด้วย RFID และ React",
     description: "ระบบนี้ช่วยให้ผู้ใช้สามารถลงทะเบียน และสแกนเข้าออกฟิตเนสได้ง่าย",
     images: [
@@ -31,30 +30,36 @@ const projects = [
   },
   {
     id: 2,
-    title: "Laundry Smart Kiosk",
-    previewImage: "/images/laundry-preview.jpg",
-    previewDescription: "เครื่องซักผ้าอัจฉริยะสำหรับหอพัก",
-    description: "ระบบหยอดเหรียญ + แจ้งเตือน LINE เมื่อซักผ้าเสร็จ",
+    title: "ติดตั้งระบบ Network",
+    previewDescription: "ติดตั้งระบบ Network เเละ Config IP ให้กับอุปกรณ์ต่างๆใช้งานได้",
+    description: " ติดตั้งระบบ Network แก้ไขและวางระบบ Network, เดินสาย Lan, ติดตั้งระบบ Internet\nรวมถึงการติดตั้งระบบกล้องวงจรปิด (IP Camera) Config IP ให้กับอุปกรณ์ต่างๆใช้งานได้",
     images: [
-      "/images/kiosk.png",
-      "/images/dashboard.png"
+      "/images/Project/Network/1.jpg",
+      "/images/Project/Network/2.jpg",
+      "/images/Project/Network/3.jpg",
+      "/images/Project/Network/4.jpg",
+      "/images/Project/Network/5.jpg",
+      "/images/Project/Network/6.jpg",
+      "/images/Project/Network/7.jpg",
+      "/images/Project/Network/8.jpg",
+      "/images/Project/Network/9.jpg"
     ],
     category: "Hardware",
-    technologies: ["React", "Node.js", "MQTT"],
-    demo_url: "https://laundrydemo.com",
-    github_url: "https://github.com/user/laundry-system"
+    technologies: ["Hikvision", "TP-Link"],
   },
   {
     id: 3,
-    title: "Laundry Smart Kiosk",
-    previewImage: "/images/laundry-preview.jpg",
+    title: "Technical Robot PUDU",
     previewDescription: "เครื่องซักผ้าอัจฉริยะสำหรับหอพัก",
     description: "ระบบหยอดเหรียญ + แจ้งเตือน LINE เมื่อซักผ้าเสร็จ",
     images: [
-      "/images/kiosk.png",
-      "/images/dashboard.png"
+      "/images/Project/PUDU/3.jpg",
+      "/images/Project/PUDU/2.jpg",
+      "/images/Project/PUDU/1.jpg",
+      "/images/Project/PUDU/4.jpg",
+      "/images/Project/PUDU/5.jpg"
     ],
-    category: "Software",
+    category: "Hardware",
     technologies: ["React", "Node.js", "MQTT"],
     demo_url: "https://laundrydemo.com",
     github_url: "https://github.com/user/laundry-system"

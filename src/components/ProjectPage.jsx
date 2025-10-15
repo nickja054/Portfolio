@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import {
   Box,
+  Button,
   Card,
   CardContent,
-  Typography,
-  Grid,
-  Button,
   Chip,
   Dialog,
   DialogContent,
+  Grid,
   IconButton,
+  Typography,
+  Divider,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -95,8 +96,10 @@ const ProjectPage = () => {
         }}
       >
         ผลงานของฉัน
-      </Typography>
 
+      </Typography>
+      <Divider sx={{ bgcolor: "#00ff40ff", height: 4, borderRadius: 2, width: 400, mx: "auto", mb: 2 }} />
+          <br/>
       {/* Filter Buttons */}
       <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 6 }}>
         {["All", "Hardware", "Software"].map((cat) => (
@@ -117,30 +120,32 @@ const ProjectPage = () => {
 
       <Grid container spacing={4} justifyContent="center">
         {filteredProjects.map((project) => (
-          <Grid item xs={12} sm={6} md={4} key={project.id}>
-            <Card sx={{ overflow: "hidden" }}>
+          <Grid item xs={12} sm={6} md={4} key={project.id} sx={{ display: 'flex' }}>
+            <Card sx={{ overflow: "hidden", display: 'flex', flexDirection: 'column', width: '100%' }}>
               <ImageSlider
                 images={project.images}
                 onImageClick={(src) => handleImageClick(src, project.images)}
               />
-              <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
-                  {project.title}
-                </Typography>
-                {project.previewDescription && (
+              <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <Box sx={{ flexGrow: 1 }}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+                    {project.title}
+                  </Typography>
+                  {project.previewDescription && (
+                    <Typography
+                      variant="body2"
+                      sx={{ fontStyle: "italic", color: "gray" }}
+                    >
+                      {project.previewDescription}
+                    </Typography>
+                  )}
                   <Typography
                     variant="body2"
-                    sx={{ fontStyle: "italic", color: "gray" }}
+                    sx={{ mt: 1, whiteSpace: "pre-line" }}
                   >
-                    {project.previewDescription}
+                    {project.description}
                   </Typography>
-                )}
-                <Typography
-                  variant="body2"
-                  sx={{ mt: 1, whiteSpace: "pre-line" }}
-                >
-                  {project.description}
-                </Typography>
+                </Box>
 
                 {/* Category Chips */}
                 <Box sx={{ mt: 2, display: "flex", gap: 1, flexWrap: "wrap" }}>
@@ -220,7 +225,6 @@ const ProjectPage = () => {
           >
             <CloseIcon />
           </IconButton>
-
           <IconButton
             onClick={handlePrev}
             sx={{
@@ -244,9 +248,9 @@ const ProjectPage = () => {
               zIndex: 10,
             }}
           >
+
             <ArrowForwardIosIcon />
           </IconButton>
-
           {selectedProjectImages.length > 0 && (
             <img
               src={selectedProjectImages[selectedIndex]}

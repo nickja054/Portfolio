@@ -33,7 +33,7 @@ const ImageSlider = ({ images = [], onImageClick }) => {
       sx={{
         position: "relative",
         width: "100%",
-        height: 250,
+        height: "250px",
         overflow: "hidden",
         bgcolor: "#000",
       }}
@@ -49,6 +49,7 @@ const ImageSlider = ({ images = [], onImageClick }) => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              objectPosition: "center",
               cursor: "pointer",
               position: "absolute",
               top: 0,
@@ -71,7 +72,7 @@ const ImageSlider = ({ images = [], onImageClick }) => {
           "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
         }}
       >
-        <ArrowBackIos fontSize="small" />
+        <ArrowBackIos sx={{ fontSize: "1rem" }} />
       </IconButton>
 
       {/* ปุ่มถัดไป */}
@@ -87,7 +88,7 @@ const ImageSlider = ({ images = [], onImageClick }) => {
           "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
         }}
       >
-        <ArrowForwardIos fontSize="small" />
+        <ArrowForwardIos sx={{ fontSize: "1rem" }} />
       </IconButton>
     </Box>
   );

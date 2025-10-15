@@ -12,6 +12,7 @@ import EducationPage from "./components/EducationPage";
 import SkillsPage from "./components/SkillsPage";
 import ProjectsPage from "./components/ProjectPage";
 import ContactPage from "./components/ContactPage";
+import InternshipPage from "./components/InternshipPage";
 
 // Pages
 
@@ -38,6 +39,7 @@ function App() {
                 <Box>
                   <Box id="about"><AboutPage /></Box>
                   <Box id="education"><EducationPage /></Box>
+                  <Box id="internship"><InternshipPage /></Box>
                   <Box id="skills"><SkillsPage /></Box>
                   <Box id="projects"><ProjectsPage /></Box>
                   <Box id="contact"><ContactPage /></Box>

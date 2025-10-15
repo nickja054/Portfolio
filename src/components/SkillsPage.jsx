@@ -5,6 +5,7 @@ import {
   Typography,
   Grid,
   Card,
+  Divider,
   CardContent,
 } from "@mui/material";
 
@@ -129,7 +130,8 @@ const SkillsPage = () => (
       >
         ทักษะของฉัน
       </Typography>
-
+      <Divider sx={{ bgcolor: "#00ff40ff", height: 4, borderRadius: 2, width: 400, mx: "auto", mb: 2 }} />
+          <br/>
       {skillGroups.map((group, idx) => (
         <Box key={idx} sx={{ mb: 6, textAlign: "center" }}>
           <Typography

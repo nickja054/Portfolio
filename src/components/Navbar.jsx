@@ -21,6 +21,7 @@ const drawerItems = [
   { label: "หน้าเเรก", path: "/#about" },
   { label: "ประวัติการศึกษา", path: "/#education" },
   { label: "ทักษะ", path: "/#skills" },
+  { label: "ประสบการณ์ฝึกงาน", path: "/#internship" },
   { label: "ผลงาน", path: "/#projects" },
   { label: "ติดต่อ", path: "/#contact" },
 ];
