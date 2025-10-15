@@ -71,7 +71,7 @@ const InternshipPage = () => {
                     <br/>
         </Box>
         {/* การ์ดฝึกงาน */}
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
           {internships.map((work, index) => (
             <Grid
               item
@@ -79,13 +79,12 @@ const InternshipPage = () => {
               xs={12}
               sm={6}
               md={4}
-              display="flex"
-              justifyContent="center"
+              sx={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch' }}
             >
               <motion.div
                 whileHover={{ scale: 1.05, y: -6 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                style={{ width: "100%", maxWidth: 360 }}
+                style={{ width: "100%", maxWidth: 360, height: '100%' }}
               >
                 <Card
                   sx={{
@@ -102,6 +101,7 @@ const InternshipPage = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    justifyContent: 'space-between',
                     "&:hover": {
                       transform: "translateY(-6px)",
                       boxShadow: "0 12px 36px rgba(0,150,255,0.12)",
