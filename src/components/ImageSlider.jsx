@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Box, IconButton, Fade } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const ImageSlider = ({ images = [], onImageClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [, setError] = useState(null);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  }, [images.length]);
 
   // Auto slide ทุก 5 วิ
   useEffect(() => {
