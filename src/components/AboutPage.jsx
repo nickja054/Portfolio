@@ -56,10 +56,14 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
 
           {/* Avatar ตรงกลาง */}
           <Avatar
-            src="/images/Profile/Patipan.jpg"
+            src={encodeURI("/images/Profile/Patipan.jpg")}
             sx={{
               width: { xs: 200, sm: 300, md: 350 },
               height: { xs: 200, sm: 300, md: 350 },
+            }}
+            onError={(e) => {
+              console.error('Failed to load profile avatar', e.target.src);
+              e.target.src = 'https://via.placeholder.com/350x350?text=No+Image';
             }}
           />
           <Box

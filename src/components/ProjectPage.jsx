@@ -225,13 +225,17 @@ const ProjectPage = () => {
           </IconButton>
           {selectedProjectImages.length > 0 && (
             <img
-              src={selectedProjectImages[selectedIndex]}
+              src={encodeURI(selectedProjectImages[selectedIndex])}
               alt="Selected"
               style={{
                 width: "100%",
                 height: "100%",
                 maxHeight: "90vh",
                 objectFit: "contain",
+              }}
+              onError={(e) => {
+                console.error('Failed to load modal image', e.target.src);
+                e.target.src = 'https://via.placeholder.com/1200x800?text=Image+Not+Found';
               }}
             />
           )}

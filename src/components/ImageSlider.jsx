@@ -42,13 +42,13 @@ const ImageSlider = ({ images = [], onImageClick }) => {
         <Fade key={i} in={i === currentIndex} timeout={600} unmountOnExit>
           <Box
             component="img"
-            src={img}
+            src={encodeURI(img)}
             alt={`slide-${i}`}
             onClick={() => handleImageClick(img)}
             onError={(e) => {
               console.error(`Failed to load image: ${img}`);
               setError(`Failed to load image ${i + 1}`);
-              e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+              e.target.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
             }}
             sx={{
               width: "100%",

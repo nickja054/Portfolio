@@ -47,22 +47,21 @@ import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
           <br/>
               <Grid container spacing={4} justifyContent="center">
       {educations.map((edu, index) => (
-        <Grid item>
+        <Grid item key={index}>
           <Card
             sx={{
               width: 350,   // กำหนดความกว้างการ์ดเท่ากันทุกใบ
               height: 400,  // ความสูงเท่ากัน
-              boxShadow: 5,
-              transition: "0.3s",
+              boxShadow: "0 8px 32px 0 rgba(31,38,135,0.18)",
+              transition: "transform 0.2s, box-shadow 0.2s",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               borderRadius: "28px",
                     background: "rgba(30, 30, 36, 0.96)",
-                    boxShadow: "0 8px 32px 0 rgba(31,38,135,0.18)",
                     borderTop: "6px solid #ffd600",
                     borderLeft: "6px solid #0073E6",
-                    transition: "transform 0.2s, box-shadow 0.2s",
+                    // hover styles below
                     "&:hover": {
                       transform: "translateY(-6px) scale(1.03)",
                       boxShadow: "0 16px 40px 0 rgba(31,38,135,0.25)",
@@ -81,9 +80,12 @@ import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
               }}
             >
               <Avatar
-                src={edu.image}
+                src={encodeURI(edu.image)}
                 sx={{ width: 180, height: 180, mb: 2, background: "#fff", }}
-                
+                onError={(e) => {
+                  console.error('Failed to load education avatar', e.target.src);
+                  e.target.src = 'https://via.placeholder.com/180x180?text=No+Image';
+                }}
               />
               <Typography variant="h6" color="rgb(255, 179, 0)" sx={{ fontWeight: 700, mb: 1, letterSpacing: 1 }}>
                               {edu.title}
