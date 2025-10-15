@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import {
   Box,
   Button,
@@ -10,16 +10,16 @@ import {
   Grid,
   IconButton,
   Typography,
-  Divider,
 } from "@mui/material";
+import { PageSection, SectionTitle, CardContainer } from "./shared/PageComponents";
+import { THEME } from "./shared/theme";
+import ErrorBoundary from "./ErrorBoundary.js";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Projects from "../data/projects";
-import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
-import { SiMqtt } from "react-icons/si";
 import ImageSlider from "../components/ImageSlider";
-import SketchUpIcon from "../assets/icons/sketchup.png";
+import TechIcon from "./TechIcon";
 
 const ProjectPage = () => {
   const [filters, setFilters] = useState(["All"]);
@@ -66,40 +66,11 @@ const ProjectPage = () => {
     );
   };
   
-  const techIcons = {
-  React: <FaReact color="#61dafb" size={20} />,
-  "Node.js": <FaNodeJs color="#339933" size={20} />,
-  MQTT: <SiMqtt color="#FF6A00" size={20} />,
-  Sketchup: <img src={SketchUpIcon} alt="SketchUp" style={{ width: 20, height: 20 }} />,
-  };
+  // Removed techIcons object - now using TechIcon component
 
   return (
-    <Box
-      sx={{
-        backgroundImage:
-          'url("https://www.transparenttextures.com/patterns/stardust.png")',
-        backgroundColor: "rgba(0, 0, 0, 0.76)",
-        backgroundRepeat: "repeat",
-        py: { xs: 6, md: 10 },
-      }}
-    >
-      <Typography
-        variant="h2"
-        color="white"
-        textAlign="center"
-        gutterBottom
-        sx={{
-          fontSize: { xs: "28px", md: "36px" },
-          fontWeight: "bold",
-          letterSpacing: 2,
-          mb: 4,
-        }}
-      >
-        ผลงานของฉัน
-
-      </Typography>
-      <Divider sx={{ bgcolor: "#00ff40ff", height: 4, borderRadius: 2, width: 400, mx: "auto", mb: 2 }} />
-          <br/>
+    <PageSection>
+      <SectionTitle>ผลงานของฉัน</SectionTitle>
       {/* Filter Buttons */}
       <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 6 }}>
         {["All", "Hardware", "Software"].map((cat) => (
@@ -119,7 +90,8 @@ const ProjectPage = () => {
       </Box>
 
       <Grid container spacing={4} justifyContent="center">
-        {filteredProjects.map((project) => (
+        <ErrorBoundary>
+          {filteredProjects.map((project) => (
           <Grid item xs={12} sm={6} md={4} key={project.id} sx={{ display: 'flex' }}>
             <Card sx={{ overflow: "hidden", display: 'flex', flexDirection: 'column', width: '100%' }}>
               <ImageSlider
@@ -174,7 +146,7 @@ const ProjectPage = () => {
                 {project.technologies.map((tech, idx) => (
                   <Chip
                     key={idx}
-                    icon={techIcons[tech]}
+                    icon={<TechIcon tech={tech} />}
                     label={tech}
                     sx={{ bgcolor: "#222", color: "#fff", fontWeight: "bold" }}
                   />
@@ -208,6 +180,7 @@ const ProjectPage = () => {
             </Card>
           </Grid>
         ))}
+        </ErrorBoundary>
       </Grid>
 
       {/* Modal แสดงรูปใหญ่ + เลื่อนซ้ายขวา */}
@@ -265,7 +238,7 @@ const ProjectPage = () => {
           )}
         </DialogContent>
       </Dialog>
-    </Box>
+    </PageSection>
   );
 };
 

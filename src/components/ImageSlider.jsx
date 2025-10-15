@@ -4,6 +4,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const ImageSlider = ({ images = [], onImageClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [error, setError] = useState(null);
 
   // Auto slide ทุก 5 วิ
   useEffect(() => {
@@ -45,6 +46,11 @@ const ImageSlider = ({ images = [], onImageClick }) => {
             src={img}
             alt={`slide-${i}`}
             onClick={() => handleImageClick(img)}
+            onError={(e) => {
+              console.error(`Failed to load image: ${img}`);
+              setError(`Failed to load image ${i + 1}`);
+              e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+            }}
             sx={{
               width: "100%",
               height: "100%",
