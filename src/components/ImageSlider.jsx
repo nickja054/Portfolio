@@ -8,11 +8,9 @@ const ImageSlider = ({ images = [], onImageClick }) => {
 
   // Auto slide ทุก 5 วิ
   useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 5000);
+    const timer = setInterval(handleNext, 5000);
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [handleNext]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));

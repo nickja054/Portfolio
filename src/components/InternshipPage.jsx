@@ -39,8 +39,6 @@ const internships = [
   },
 ];
 
-const bgGradient = "linear-gradient(135deg, #232526 0%, #414345 100%)";
-
 const InternshipPage = () => {
   return (
     <Box
