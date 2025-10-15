@@ -50,13 +50,13 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
           <br />
             <Container maxWidth="xl" sx={{ px: 4, py: 6 }}>
               <Grid container spacing={2} alignItems="center">
-                <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
-                  <Grid item xs={12} md={4} sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", }}>
+                <Grid item xs={12} sm={6} md={4} sx={{ textAlign: "center" }}>
+                  <Grid item xs={12} sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
         <Box sx={{ position: "relative", display: "flex", alignItems: "center" }}>
 
           {/* Avatar ตรงกลาง */}
           <Avatar
-            src={encodeURI("/images/Profile/Patipan.jpg")}
+            src={encodeURI("/images/Profile/Patipan1.jpg")}
             sx={{
               width: { xs: 200, sm: 300, md: 350 },
               height: { xs: 200, sm: 300, md: 350 },
@@ -114,12 +114,13 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
         </Box>
       </Grid>
       </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} sm={6} md={8} sx={{ px: { xs: 2, sm: 4 }, mt: { xs: 4, sm: 0 } }}>
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "32px", sm: "48px", md: "64px" },
+                fontSize: { xs: "32px", sm: "42px", md: "64px" },
                 color: "white",
+                mb: { xs: 1, sm: 2 }
               }}
             >
               สวัสดีครับ,
@@ -127,25 +128,27 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: "24px", sm: "36px", md: "48px" },
+                fontSize: { xs: "24px", sm: "32px", md: "48px" },
                 color: "rgb(255, 179, 0)",
+                mb: { xs: 2, sm: 3 }
               }}
             >
               ผม ปฏิภาณ บุญชู.
             </Typography>
-            <Typography variant="h5" sx={{ mt: 2, color: "rgb(0, 255, 128)", fontSize: { xs: "18px", md: "24px" } }}>
+            <Typography variant="h5" sx={{ color: "rgb(0, 255, 128)", fontSize: { xs: "18px", sm: "20px", md: "24px" }, mb: { xs: 2, sm: 3 } }}>
             Frontend Developer / IT Support / Network Engineer
             </Typography>
             <Typography
               variant="h6"
               sx={{
-                mt: 2,
                 color: "white",
-                fontSize: { xs: "16px", md: "20px" },
+                fontSize: { xs: "16px", sm: "18px", md: "20px" },
                 display: "inline-block",
                 whiteSpace: "normal",  // ให้ตัดบรรทัดได้
                 wordBreak: "break-word", // ตัดคำถ้าจำเป็น
-                textAlign: "", // จัดกลาง (เลือกได้)
+                textAlign: { xs: "left", sm: "left" },
+                maxWidth: { sm: "90%", md: "100%" },
+                lineHeight: { xs: 1.6, sm: 1.8 }
               }}
             >
               {displayText}
