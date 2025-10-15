@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -11,8 +11,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import { PageSection, SectionTitle, CardContainer } from "./shared/PageComponents";
-import { THEME } from "./shared/theme";
+import { PageSection, SectionTitle } from "./shared/PageComponents";
 import ErrorBoundary from "./ErrorBoundary.js";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";

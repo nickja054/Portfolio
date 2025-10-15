@@ -9,7 +9,7 @@ import {
   Box,
   Divider,
 } from "@mui/material";
-import WorkHistoryTwoToneIcon from "@mui/icons-material/WorkHistoryTwoTone";
+// Removed unused import
 import { motion } from "framer-motion";
 
 const internships = [

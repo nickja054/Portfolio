@@ -4,7 +4,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const ImageSlider = ({ images = [], onImageClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   // Auto slide ทุก 5 วิ
   useEffect(() => {
