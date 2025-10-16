@@ -4,13 +4,13 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
 
       const AboutPage = () => {
         const fullText =
-          "ผมพร้อมที่จะเรียนรู้ เพื่อหาประสบการณ์เเละพัฒนาตัวเองในสายงานวิศวกรรมคอมพิวเตอร์"
+          "ผมพร้อมที่จะเรียนรู้ เพื่อหาประสบการณ์เเละพัฒนาตัวเองในสายงานวิศวกรรมคอมพิวเตอร์";
         const [displayText, setDisplayText] = useState("");
         const [isDeleting, setIsDeleting] = useState(false);
         const [index, setIndex] = useState(0);
 
         useEffect(() => {
-          let typingSpeed = isDeleting ? 30 : 90; // ความเร็วลบ/พิมพ์
+          let typingSpeed = isDeleting ? 30 : 90;
           let timeout;
 
           if (!isDeleting && index <= fullText.length) {
@@ -24,7 +24,7 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
               setIndex(index - 1);
             }, typingSpeed);
           } else if (index > fullText.length) {
-            timeout = setTimeout(() => setIsDeleting(true), 3000); // พักก่อนลบ
+            timeout = setTimeout(() => setIsDeleting(true), 5000);
           } else if (index < 0) {
             setIsDeleting(false);
             setIndex(0);
@@ -41,25 +41,33 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
               backgroundRepeat: "repeat",
               py: { xs: 6, md: 10 },
             }}
-            
           >
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+            {/* Remove excessive manual <br /> spacing; use responsive padding via Container */}
             <Container maxWidth="xl" sx={{ px: 4, py: 6 }}>
-              <Grid container spacing={2} alignItems="center">
-                <Grid item xs={12} sm={6} md={4} sx={{ textAlign: "center" }}>
-                  <Grid item xs={12} sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-        <Box sx={{ position: "relative", display: "flex", alignItems: "center" }}>
-
-          {/* Avatar ตรงกลาง */}
+              <Grid container spacing={4} alignItems="center">
+              <Grid item xs={12} sm={5} md={4}>
+            <Box
+              sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
+              }}
+            >
+              <Box sx={{ position: "relative", width: { xs: 160, sm: 260, md: 350 }, height: { xs: 160, sm: 260, md: 350 }, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <Avatar
             src={encodeURI("/images/Profile/Patipan1.jpg")}
             sx={{
-              width: { xs: 200, sm: 300, md: 350 },
-              height: { xs: 200, sm: 300, md: 350 },
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              "& .MuiAvatar-img": {
+          objectFit: "cover",
+          objectPosition: "center top",
+              },
             }}
             onError={(e) => {
               console.error('Failed to load profile avatar', e.target.src);
@@ -67,7 +75,7 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
             }}
           />
           <Box
-          sx={{
+            sx={{
               position: "absolute",
               top: "2%",
               right: "-30px",
@@ -76,11 +84,9 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
               ml: 2,
               display: { xs: "block", sm: "block" },
             }}
-        >
-          <FaServer size={50} color="#ffb300" />
-        </Box>
-
-          {/* Icon ด้านขวา */}
+          >
+            <FaServer size={50} color="#ffb300" />
+          </Box>
           <Box
             sx={{
               position: "absolute",
@@ -101,9 +107,9 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
               left: "-15px",
               animation: "float 3s ease-in-out infinite",
               "@keyframes float": {
-                "0%": { transform: "translateY(0)" },
-                "50%": { transform: "translateY(-10px)" },
-                "100%": { transform: "translateY(0)" },
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(0)" },
               },
               mr: 2,
               display: { xs: "block", sm: "block" },
@@ -111,16 +117,16 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
           >
             <FaLaptopCode size={50} color="#00e676" />
           </Box>
-        </Box>
-      </Grid>
-      </Grid>
+              </Box>
+            </Box>
+          </Grid>
           <Grid item xs={12} sm={6} md={8} sx={{ px: { xs: 2, sm: 4 }, mt: { xs: 4, sm: 0 } }}>
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "32px", sm: "42px", md: "64px" },
-                color: "white",
-                mb: { xs: 1, sm: 2 }
+          fontSize: { xs: "32px", sm: "42px", md: "64px" },
+          color: "white",
+          mb: { xs: 1, sm: 2 }
               }}
             >
               สวัสดีครับ,
@@ -128,55 +134,64 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: "24px", sm: "32px", md: "48px" },
-                color: "rgb(255, 179, 0)",
-                mb: { xs: 2, sm: 3 }
+          fontSize: { xs: "24px", sm: "32px", md: "48px" },
+          color: "rgb(255, 179, 0)",
+          mb: { xs: 2, sm: 3 }
               }}
             >
               ผม ปฏิภาณ บุญชู.
             </Typography>
             <Typography variant="h5" sx={{ color: "rgb(0, 255, 128)", fontSize: { xs: "18px", sm: "20px", md: "24px" }, mb: { xs: 2, sm: 3 } }}>
-            Frontend Developer / IT Support / Network Engineer
+              Frontend Developer / IT Support / Network Engineer
             </Typography>
-            <Typography
-              variant="h6"
+            <Box
               sx={{
-                color: "white",
-                fontSize: { xs: "16px", sm: "18px", md: "20px" },
-                display: "inline-block",
-                whiteSpace: "normal",  // ให้ตัดบรรทัดได้
-                wordBreak: "break-word", // ตัดคำถ้าจำเป็น
-                textAlign: { xs: "left", sm: "left" },
-                maxWidth: { sm: "90%", md: "100%" },
-                lineHeight: { xs: 1.6, sm: 1.8 }
+          position: "relative",
+          minHeight: { xs: "40px", sm: "48px", md: "56px" },
+          display: "flex",
+          alignItems: "center",
               }}
             >
-              {displayText}
-              <Box
-                component="span"
-                sx={{
-                  borderLeft: "2px solid white",
-                  ml: 0.5,
-                  animation: "blink 0.8s infinite",
-                  "@keyframes blink": {
-                    "0%": { opacity: 1 },
-                    "50%": { opacity: 0 },
-                    "100%": { opacity: 1 },
-                  },
-                }}
-              ></Box>
-            </Typography>
-
+              <Typography
+          variant="h6"
+          sx={{
+            color: "white",
+            fontSize: { xs: "16px", sm: "18px", md: "20px" },
+            display: "block",
+            whiteSpace: { xs: "normal", sm: "pre-line" },
+            wordBreak: "break-word",
+            textAlign: { xs: "left", sm: "left" },
+            maxWidth: { sm: "100%", md: "100%" },
+            width: { sm: "100%", md: "100%" },
+            lineHeight: { xs: 1.6, sm: 1.8 },
+          }}
+              >
+          {displayText}
+          <Box
+            component="span"
+            sx={{
+              borderLeft: "2px solid white",
+              ml: 0.5,
+              animation: "blink 0.8s infinite",
+              "@keyframes blink": {
+          "0%": { opacity: 1 },
+          "50%": { opacity: 0 },
+          "100%": { opacity: 1 },
+              },
+            }}
+          ></Box>
+              </Typography>
+            </Box>
           </Grid>
-        </Grid>
-      </Container>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    </Box>
-  );
-};
+              </Grid>
+            </Container>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </Box>
+        );
+      };
 
 export default AboutPage;
