@@ -9,22 +9,21 @@ import {
   Box,
   Divider,
 } from "@mui/material";
-// Removed unused import
 import { motion } from "framer-motion";
 
 const internships = [
   {
     image: "/images/Intern/Advice.png",
     title: "บริษัท เเอดไวซ๋ จำกัด (สาขา งาว)",
-    period: "พฤษภาคม 2563 - กรกฎาคม 2563",
+    period: "พฤษภาคม - กรกฎาคม 2562",
     position: "IT Support",
     detail:
-      "งานซ่อม Computer , Printer ดูเเลอุปกรณ์ HardwareเเละSoftware",
+      "งานซ่อม Computer , Printer ดูเเลอุปกรณ์ HardwareเเละSoftware รวมไปถึงการประสานงานกับลูกค้า",
   },
   {
     image: "/images/Intern/EGAT.jpg",
-    title: "การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ.) เเม่เมาะ",
-    period: "2563-2564",
+    title: "การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ.) เแม่เมาะ",
+    period: "มีนาคม - พฤษภาคม 2564",
     position: "ดูแลซ่อมคอมพิวเตอร์เเละระบบเครือข่าย",
     detail:
       "ดูแลซ่อมบำรุงรักษาอุปกรณ์คอมพิวเตอร์และระบบเครือข่ายภายในองค์กร รวมถึงติดตั้งโปรแกรมและซอฟต์แวร์ต่างๆ ที่เกี่ยวข้องกับงาน",
@@ -32,7 +31,7 @@ const internships = [
   {
     image: "/images/Intern/Ozone.png",
     title: "บริษัท โอโซนเน็ตเวิร์ค อินทิเกรชั่น จำกัด",
-    period: "23 มิถุนายน 2568 - 10 ตุลาคม 2568",
+    period: "มิถุนายน - ตุลาคม 2568",
     position: "Network Engineer & Technical Robot PUDU ",
     detail:
       "งานติดตั้งและดูแลระบบเครือข่ายคอมพิวเตอร์, ระบบกล้องวงจรปิด, ระบบเซิร์ฟเวอร์ และบำรุงรักษาอุปกรณ์ IT ภายในองค์กร รวมถึงการดูแลและซัพพอร์ตหุ่นยนต์ PUDU ในเครืออุตสาหกรรม",
@@ -68,10 +67,16 @@ const InternshipPage = () => {
             ประสบการณ์ฝึกงาน
           </Typography>
           <Divider sx={{ bgcolor: "#00ff40ff", height: 4, borderRadius: 2, width: 400, mx: "auto", mb: 2 }} />
-                    <br/>
+          <br />
         </Box>
         {/* การ์ดฝึกงาน */}
-        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+        <Grid 
+          container 
+          // ปรับ spacing ให้เป็น Responsive
+          // xs (มือถือ): 2 (16px) | sm (iPad/แท็บเล็ต): 3 (24px) | md (เดสก์ท็อป): 4 (32px)
+          spacing={{ xs: 2, sm: 3, md: 4 }} 
+          justifyContent="center"
+        >
           {internships.map((work, index) => (
             <Grid
               item
@@ -88,7 +93,7 @@ const InternshipPage = () => {
               >
                 <Card
                   sx={{
-                    height: "100%",
+                    height: "90%",
                     borderRadius: "16px",
                     background: "rgba(34, 34, 34, 0.6)",
                     backdropFilter: "blur(8px)",
@@ -110,29 +115,29 @@ const InternshipPage = () => {
                 >
                   <CardContent>
                     <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      mb: 2,
-                    }}
-                  >
-                    <Avatar
-                      src={work.image}
-                      alt={work.title}
                       sx={{
-                        width: 120,
-                        height: 120,
-                        background: "#fff",
-                        border: "3px solid #ffffffff",
-                        boxShadow: "0 0 20px rgba(0, 114, 255, 0.3)",
-                        objectFit: "cover", // ✅ ปรับรูปให้พอดีเต็มวง
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        mb: 2,
                       }}
-                      imgProps={{
-                        style: { objectFit: "cover", width: "100%", height: "100%" }, // ✅ บังคับรูปเต็ม Avatar
-                      }}
-                    />
-                  </Box>
+                    >
+                      <Avatar
+                        src={work.image}
+                        alt={work.title}
+                        sx={{
+                          width: 120,
+                          height: 120,
+                          background: "#fff",
+                          border: "3px solid #ffffffff",
+                          boxShadow: "0 0 20px rgba(0, 114, 255, 0.3)",
+                          objectFit: "cover", // ปรับรูปให้พอดีเต็มวง
+                        }}
+                        imgProps={{
+                          style: { objectFit: "cover", width: "100%", height: "100%" }, // บังคับรูปเต็ม Avatar
+                        }}
+                      />
+                    </Box>
                     <Typography
                       variant="h6"
                       sx={{

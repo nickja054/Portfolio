@@ -22,12 +22,12 @@ import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
         title: "ระดับปริญญาตรี",
         school: "มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา เชียงใหม่ (2565-2568)",
         text: "คณะวิศวกรรมศาสตร์",
-        detail: "สาขาวิศวกรรมคอมพิวเตอร์ GPA 2.85",
+        detail: "สาขาวิศวกรรมคอมพิวเตอร์ GPA 2.82",
       },
       
     ];
 
-    const bgGradient = "linear-gradient(135deg, #232526 0%, #414345 100%)";
+    const bgGradient = "linear-gradient(135deg, #232526 30%, #202020ec 60%)";
 
     const EducationPage = () => {
       return (
@@ -37,7 +37,7 @@ import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
           backgroundRepeat: "repeat",
           py: { xs: 12, md: 10 },
           px: 0,
-          size: "auto",
+          minHeight: "60vh",
         }}>
         <Container >
           <Typography variant="h4" align="center" gutterBottom color="white" sx={{ fontWeight: 'bold', mb: 2 }}>

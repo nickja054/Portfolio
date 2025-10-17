@@ -4,7 +4,7 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
 
       const AboutPage = () => {
         const fullText =
-          "ผมพร้อมที่จะเรียนรู้ เพื่อหาประสบการณ์เเละพัฒนาตัวเองในสายงานวิศวกรรมคอมพิวเตอร์";
+          "ผมพร้อมที่จะเรียนรู้สิ่งใหม่ ๆ เพื่อหาประสบการณ์ในการทำงานและพัฒนาตนเอง\nให้เติบโตอย่างต่อเนื่อง ด้านสายงาน \" วิศวกรรมคอมพิวเตอร์ \" ";
         const [displayText, setDisplayText] = useState("");
         const [isDeleting, setIsDeleting] = useState(false);
         const [index, setIndex] = useState(0);
@@ -39,11 +39,13 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
               backgroundImage: 'url("https://www.transparenttextures.com/patterns/cartographer.png")',
               backgroundColor: "rgb(28, 28, 29)",
               backgroundRepeat: "repeat",
-              py: { xs: 6, md: 10 },
+              py: { xs: 12, md: 20 },
+              minHeight: "60vh",
+              display: "flex",
+              alignItems: "center",
             }}
           >
-            {/* Remove excessive manual <br /> spacing; use responsive padding via Container */}
-            <Container maxWidth="xl" sx={{ px: 4, py: 6 }}>
+            <Container maxWidth="xl" sx={{ px: 4, py: { xs: 8, md: 12 } }}>
               <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} sm={5} md={4}>
             <Box
@@ -120,13 +122,14 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={6} md={8} sx={{ px: { xs: 2, sm: 4 }, mt: { xs: 4, sm: 0 } }}>
+          <Grid item xs={12} sm={6} md={8} sx={{ px: { xs: 1, sm: 4 }, mt: { xs: 4, sm: 0 } }}>
             <Typography
               variant="h1"
               sx={{
-          fontSize: { xs: "32px", sm: "42px", md: "64px" },
+          fontSize: { xs: "28px", sm: "42px", md: "64px" },
           color: "white",
-          mb: { xs: 1, sm: 2 }
+          mb: { xs: 1, sm: 2 },
+          lineHeight: { xs: 1.2, sm: 1.3 }
               }}
             >
               สวัสดีครับ,
@@ -134,20 +137,27 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
             <Typography
               variant="h2"
               sx={{
-          fontSize: { xs: "24px", sm: "32px", md: "48px" },
+          fontSize: { xs: "22px", sm: "32px", md: "48px" },
           color: "rgb(255, 179, 0)",
-          mb: { xs: 2, sm: 3 }
+          mb: { xs: 2, sm: 3 },
+          lineHeight: { xs: 1.2, sm: 1.3 }
               }}
             >
               ผม ปฏิภาณ บุญชู.
             </Typography>
-            <Typography variant="h5" sx={{ color: "rgb(0, 255, 128)", fontSize: { xs: "18px", sm: "20px", md: "24px" }, mb: { xs: 2, sm: 3 } }}>
+            <Typography variant="h5" sx={{ 
+              color: "rgb(0, 255, 128)", 
+              fontSize: { xs: "14px", sm: "20px", md: "24px" }, 
+              mb: { xs: 2, sm: 3 },
+              lineHeight: { xs: 1.4, sm: 1.5 },
+              wordBreak: "break-word"
+            }}>
               Frontend Developer / IT Support / Network Engineer
             </Typography>
             <Box
               sx={{
           position: "relative",
-          minHeight: { xs: "40px", sm: "48px", md: "56px" },
+          minHeight: { xs: "60px", sm: "48px", md: "56px" },
           display: "flex",
           alignItems: "center",
               }}
@@ -156,14 +166,15 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
           variant="h6"
           sx={{
             color: "white",
-            fontSize: { xs: "16px", sm: "18px", md: "20px" },
+            fontSize: { xs: "14px", sm: "18px", md: "20px" },
             display: "block",
             whiteSpace: { xs: "normal", sm: "pre-line" },
             wordBreak: "break-word",
             textAlign: { xs: "left", sm: "left" },
-            maxWidth: { sm: "100%", md: "100%" },
-            width: { sm: "100%", md: "100%" },
-            lineHeight: { xs: 1.6, sm: 1.8 },
+            maxWidth: "100%",
+            width: "100%",
+            lineHeight: { xs: 1.5, sm: 1.8 },
+            overflowWrap: "break-word",
           }}
               >
           {displayText}
@@ -185,11 +196,6 @@ import { FaLaptopCode, FaServer, FaNetworkWired } from "react-icons/fa";
           </Grid>
               </Grid>
             </Container>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
           </Box>
         );
       };

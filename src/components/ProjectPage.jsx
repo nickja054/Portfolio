@@ -16,6 +16,8 @@ import ErrorBoundary from "./ErrorBoundary.js";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LaunchIcon from "@mui/icons-material/Launch";
 import Projects from "../data/projects";
 import ImageSlider from "../components/ImageSlider";
 import TechIcon from "./TechIcon";
@@ -88,31 +90,66 @@ const ProjectPage = () => {
         ))}
       </Box>
 
-      <Grid container spacing={4} justifyContent="center">
+      <Grid container spacing={{ xs: 3, sm: 4, md: 4 }} justifyContent="center" alignItems="stretch" sx={{ px: { xs: 2, sm: 4, md: 6 } }}>
         <ErrorBoundary>
           {filteredProjects.map((project) => (
-          <Grid item xs={12} sm={6} md={4} key={project.id} sx={{ display: 'flex' }}>
-            <Card sx={{ overflow: "hidden", display: 'flex', flexDirection: 'column', width: '100%' }}>
-              <ImageSlider
-                images={project.images}
-                onImageClick={(src) => handleImageClick(src, project.images)}
-              />
-              <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+          <Grid item xs={12} sm={6} md={4} key={project.id} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', mb: { xs: 2, sm: 3, md: 4 } }}>
+            <Card sx={{ 
+              overflow: "hidden", 
+              display: 'flex', 
+              flexDirection: 'column', 
+              width: '100%', 
+              minHeight: { xs: 480, sm: 520, md: 560 }, 
+              maxWidth: { xs: 350, sm: 380, md: 400 },
+              mx: 'auto',
+              height: '100%' 
+            }}>
+              {/* Image area: responsive height for different screens */}
+              <Box sx={{ height: { xs: 180, sm: 200, md: 220 }, width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <ImageSlider
+                  images={project.images}
+                  onImageClick={(src) => handleImageClick(src, project.images)}
+                />
+              </Box>
+              <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1, p: { xs: 1.5, sm: 2, md: 2.5 } }}>
                 <Box sx={{ flexGrow: 1 }}>
-                  <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+                  <Typography variant="h6" sx={{ 
+                    fontWeight: "bold", 
+                    mb: 1,
+                    fontSize: { xs: "14px", sm: "16px", md: "18px" },
+                    lineHeight: 1.2
+                  }}>
                     {project.title}
                   </Typography>
                   {project.previewDescription && (
                     <Typography
                       variant="body2"
-                      sx={{ fontStyle: "italic", color: "gray" }}
+                      sx={{ 
+                        fontStyle: "italic", 
+                        color: "gray", 
+                        mb: 0.5, 
+                        overflow: 'hidden', 
+                        textOverflow: 'ellipsis', 
+                        whiteSpace: 'nowrap',
+                        fontSize: { xs: "11px", sm: "12px", md: "13px" }
+                      }}
                     >
                       {project.previewDescription}
                     </Typography>
                   )}
                   <Typography
                     variant="body2"
-                    sx={{ mt: 1, whiteSpace: "pre-line" }}
+                    sx={{ 
+                      mt: 1, 
+                      whiteSpace: "pre-line", 
+                      color: '#242323ff', 
+                      overflow: 'hidden', 
+                      display: '-webkit-box', 
+                      WebkitLineClamp: { xs: 3, sm: 4, md: 4 }, 
+                      WebkitBoxOrient: 'vertical',
+                      fontSize: { xs: "12px", sm: "13px", md: "14px" },
+                      lineHeight: 1.4
+                    }}
                   >
                     {project.description}
                   </Typography>
@@ -128,6 +165,8 @@ const ProjectPage = () => {
                         sx={{
                           bgcolor: cat === "Hardware" ? "#e8980dff" : cat === "Software" ? "#38f9d7" : "#ccc",
                           color: "#000000ff",
+                          fontSize: { xs: "10px", sm: "11px", md: "12px" },
+                          height: { xs: 24, sm: 28, md: 32 }
                         }}
                       />
                     ))
@@ -137,6 +176,8 @@ const ProjectPage = () => {
                         sx={{
                           bgcolor: project.category === "Hardware" ? "#e8980dff" : project.category === "Software" ? "#38f9d7" : "#ccc",
                           color: "#000000ff",
+                          fontSize: { xs: "10px", sm: "11px", md: "12px" },
+                          height: { xs: 24, sm: 28, md: 32 }
                         }}
                       />
                     )}
@@ -147,18 +188,37 @@ const ProjectPage = () => {
                     key={idx}
                     icon={<TechIcon tech={tech} />}
                     label={tech}
-                    sx={{ bgcolor: "#222", color: "#fff", fontWeight: "bold" }}
+                    sx={{ 
+                      bgcolor: "#222", 
+                      color: "#fff", 
+                      fontWeight: "bold", 
+                      height: { xs: 26, sm: 28, md: 30 }, 
+                      px: 1,
+                      fontSize: { xs: "9px", sm: "10px", md: "11px" },
+                      "& .MuiChip-icon": {
+                        fontSize: { xs: "14px", sm: "16px", md: "18px" }
+                      }
+                    }}
                   />
                 ))}
               </Box>
-              <Box sx={{ mt: 2, display: "flex", gap: 2, flexWrap: "wrap" }}>
+              <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", alignItems: 'center', mt: 'auto' }}>
               {project.demo_url && (
                 <Button
                   size="small"
-                  variant="outlined"
-                  color="primary"
+                  variant="contained"
                   href={project.demo_url}
                   target="_blank"
+                  startIcon={<LaunchIcon sx={{ fontSize: { xs: "12px", sm: "14px", md: "16px" } }} />}
+                  sx={{
+                    fontSize: { xs: "10px", sm: "11px", md: "12px" },
+                    padding: { xs: "4px 8px", sm: "6px 12px", md: "8px 16px" },
+                    backgroundColor: "rgba(0, 118, 252, 1)",
+                    color: "#ffffff",
+                    "&:hover": {
+                      backgroundColor: "rgba(3, 127, 228, 0.8)"
+                    }
+                  }}
                 >
                   Demo
                 </Button>
@@ -166,10 +226,19 @@ const ProjectPage = () => {
               {project.github_url && (
                 <Button
                   size="small"
-                  variant="outlined"
-                  color="secondary"
+                  variant="contained"
                   href={project.github_url}
                   target="_blank"
+                  startIcon={<GitHubIcon sx={{ fontSize: { xs: "12px", sm: "14px", md: "16px" } }} />}
+                  sx={{
+                    fontSize: { xs: "10px", sm: "11px", md: "12px" },
+                    padding: { xs: "4px 8px", sm: "6px 12px", md: "8px 16px" },
+                    backgroundColor: "rgba(0, 0, 0, 1)",
+                    color: "#ffffff",
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.8)"
+                    }
+                  }}
                 >
                   GitHub
                 </Button>

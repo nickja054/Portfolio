@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const drawerItems = [
-  { label: "หน้าเเรก", path: "/#about" },
+  { label: "เกี่ยวกับฉัน", path: "/#about" },
   { label: "ประวัติการศึกษา", path: "/#education" },
   { label: "ประสบการณ์ฝึกงาน", path: "/#internship" },
   { label: "ทักษะ", path: "/#skills" },
@@ -84,7 +84,7 @@ const Navbar = ({ token, setToken }) => {
           >
             NickJrz .Dev
           </Typography>
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
               {drawerItems.map((item, index) => (
                 <Button
                   key={index}
